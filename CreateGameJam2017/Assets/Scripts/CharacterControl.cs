@@ -60,6 +60,7 @@ public class CharacterControl : MonoBehaviour
 	public Rigidbody rb;
 	public Camera cam;
 	public GameObject camHingeY;
+    public Transform camTransform;
 
 	float forwardInput, turnInput, camHorizontalInput, jumpInput, strafeInput;
 
@@ -142,9 +143,15 @@ public class CharacterControl : MonoBehaviour
 	{
 		if(m_cursorIsLocked)
 		{
-			float toRotate = camHorizontalInput * moveSettings.rotateVel;
-			cameraRotation = new Vector3(toRotate, 0f, 0f);
+            cameraRotation.x += camHorizontalInput * moveSettings.rotateVel;
+            cameraRotation.x = Mathf.Clamp(cameraRotation.x, -50, 50);
+            camTransform.localEulerAngles = cameraRotation;
+            /*
+            float toRotate = camHorizontalInput * moveSettings.rotateVel;
+            cameraRotation = new Vector3(Mathf.Clamp(toRotate, -50, 50),0f, 0f);
+                //toRotate, 0f, 0f);
 			camHingeY.transform.Rotate(-cameraRotation);
+            */
 		}
 	}
 

@@ -440,6 +440,7 @@ MonoBehaviour:
   rb: {fileID: 932087400}
   cam: {fileID: 1880641763}
   camHingeY: {fileID: 838455311}
+  camTransform: {fileID: 838455312}
 --- !u!1 &1880641760
 GameObject:
   m_ObjectHideFlags: 0
