@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[System.Serializable]
 [RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : LivingEntity {
-
+    public Ragdoll ragdoll;
     NavMeshAgent pathfinder;
     Transform target;
+    Transform enemy;
+
 
     // Use this for initialization
     protected override void Start()
@@ -17,6 +20,7 @@ public class Enemy : LivingEntity {
 
         pathfinder = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        enemy = this.transform;
 
         StartCoroutine(UpdatePath());
     }
@@ -40,5 +44,12 @@ public class Enemy : LivingEntity {
             }
             yield return new WaitForSeconds(refreshRate);
         }
+    }
+
+    void OnDestroy()
+    {
+        Instantiate(ragdoll, transform.position, transform.rotation);
+        Instantiate(ragdoll, transform.position, transform.rotation);
+        print("Script was destroyed");
     }
 }
