@@ -6,16 +6,18 @@ using UnityEngine;
 
 
 
-public class Player : MonoBehaviour {
-
+public class Player : LivingEntity
+{
     Rigidbody rb;
     Transform tm;
     Vector3 input = new Vector3();
     float movespeed;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    protected override void Start()
+    {
+        base.Start();
         rb = GetComponent<Rigidbody>();
         tm = GetComponent<Transform>();
 	}

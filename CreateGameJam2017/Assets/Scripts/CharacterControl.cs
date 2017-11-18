@@ -143,7 +143,7 @@ public class CharacterControl : MonoBehaviour
 	{
 		if(m_cursorIsLocked)
 		{
-            cameraRotation.x += camHorizontalInput * moveSettings.rotateVel;
+            cameraRotation.x -= camHorizontalInput * moveSettings.rotateVel;
             cameraRotation.x = Mathf.Clamp(cameraRotation.x, -50, 50);
             camTransform.localEulerAngles = cameraRotation;
             /*
