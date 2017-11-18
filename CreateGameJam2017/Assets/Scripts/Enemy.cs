@@ -6,10 +6,11 @@ using UnityEngine.AI;
 [System.Serializable]
 [RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : LivingEntity {
-    public Ragdoll ragdoll;
+
     NavMeshAgent pathfinder;
     Transform target;
     Transform enemy;
+
 
 
     // Use this for initialization
@@ -47,8 +48,7 @@ public class Enemy : LivingEntity {
 
     void OnDestroy()
     {
-        Instantiate(ragdoll, transform.position, transform.rotation);
-        Instantiate(ragdoll, transform.position, transform.rotation);
+
         print("Script was destroyed");
     }
 }

@@ -99,6 +99,7 @@ MonoBehaviour:
   startingHealth: 2
   health: 0
   ragdoll: {fileID: 114180772788744456, guid: 8fc317186c538a543b36489426f3de15, type: 2}
+  Blood_FX: {fileID: 4084275022800824, guid: 660ced35ebe072e45a7f19d19de21258, type: 2}
 --- !u!136 &136954081711946668
 CapsuleCollider:
   m_ObjectHideFlags: 1
