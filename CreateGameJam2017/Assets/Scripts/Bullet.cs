@@ -33,11 +33,11 @@ public class Bullet : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit, toMove))
         {
-            OnHitObject(hit);
+            OnHitObject(ray, hit);
         }
     }
 
-    private void OnHitObject(RaycastHit hit)
+    private void OnHitObject(Ray ray, RaycastHit hit)
     {
         print(hit.collider.gameObject.name);
         if (hit.collider.gameObject.tag == "enemy")
@@ -50,10 +50,10 @@ public class Bullet : MonoBehaviour {
             
         } else if (hit.collider.gameObject.tag == "ragdoll") 
         {
-            IDamageable damageableObject = hit.collider.GetComponent<IDamageable>();
+            IGiveForce damageableObject = hit.collider.GetComponent<IGiveForce>();
             if (damageableObject != null)
             {
-                //damageableObject
+                damageableObject.TakeForce(ray, hit);                
             }
         }
         Destroy(gameObject);

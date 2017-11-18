@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IGiveForce {
 
-    void TakeForce(Vector3 direction, RaycastHit hit);
+    void TakeForce(Ray ray, RaycastHit hit);
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [System.Serializable]
-public class Ragdoll : MonoBehaviour {
+public class Ragdoll : MonoBehaviour, IGiveForce
+{
     Transform ragdolltransform;
     Rigidbody rb;
     // Use this for initialization
@@ -21,4 +22,11 @@ public class Ragdoll : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void IGiveForce.TakeForce(Ray bullet,RaycastHit hit)
+    {
+        print("Box is shot");
+       rb.AddForceAtPosition(bullet.direction * 1002, hit.point, ForceMode.Impulse);
+        
+    }
 }
