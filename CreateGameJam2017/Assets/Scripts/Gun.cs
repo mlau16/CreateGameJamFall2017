@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour {
 
-    private void Awake()
-    {
-        amountOfGuns = gunType.Length;
-    }
-
     public Guntypes[] gunType;
     [HideInInspector]
     public Guntypes currentGun;
+    public Transform shootRot;
     float shootingTimer;
-    int amountOfGuns;
     int activegun;
 
     void Start ()
     {
         shootingTimer = 0;
-	}
+        activegun = 0;
+        currentGun = gunType[activegun];
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -38,8 +36,12 @@ public class Gun : MonoBehaviour {
             if(shootingTimer <= 0)
             {
                 // Shoot please
-                //Bullet bullet = Instantiate() as bullet;
-                //shootingTimer = shootingSpeed;
+ 
+                Bullet bullet = Instantiate(currentGun.bulletPrefab, currentGun.bulletOrigin.position, shootRot.rotation);
+                bullet.SetSpeed(currentGun.bulletVel);
+                bullet.SetDamage(currentGun.damage);
+
+                shootingTimer = currentGun.shootingRate;
             }
         }
     }
@@ -72,8 +74,7 @@ public class Guntypes
     public float shootingRate;
     public GameObject gunModel;
     public Transform bulletOrigin;
-    public GameObject bulletPrefab;
+    public Bullet bulletPrefab;
     public float bulletVel;
     public float damage;
-
 }
