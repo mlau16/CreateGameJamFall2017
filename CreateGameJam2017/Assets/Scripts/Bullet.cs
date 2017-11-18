@@ -40,10 +40,21 @@ public class Bullet : MonoBehaviour {
     private void OnHitObject(RaycastHit hit)
     {
         print(hit.collider.gameObject.name);
-        IDamageable damageableObject = hit.collider.GetComponent<IDamageable>();
-        if (damageableObject != null)
+        if (hit.collider.gameObject.tag == "enemy")
         {
-            damageableObject.TakeHit(damage, hit);
+            IDamageable damageableObject = hit.collider.GetComponent<IDamageable>();
+            if (damageableObject != null)
+            {
+                damageableObject.TakeHit(damage, hit);
+            }
+            
+        } else if (hit.collider.gameObject.tag == "ragdoll") 
+        {
+            IDamageable damageableObject = hit.collider.GetComponent<IDamageable>();
+            if (damageableObject != null)
+            {
+                //damageableObject
+            }
         }
         Destroy(gameObject);
     }

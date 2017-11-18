@@ -7,4 +7,5 @@ public interface IDamageable
     //Method that gets called when object gets hit
     //Overridden within player + enemy class
     void TakeHit(float damage, RaycastHit hit);
+
 }

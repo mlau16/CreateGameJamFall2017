@@ -17,7 +17,6 @@ public class Enemy : LivingEntity {
     {
         base.Start();
 
-
         pathfinder = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = this.transform;
