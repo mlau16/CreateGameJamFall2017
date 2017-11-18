@@ -52,18 +52,16 @@ public class Gun : MonoBehaviour {
         {
             activegun = 0;
             currentGun = gunType[0];
+            currentGun.gunModel.SetActive(true);
+            gunType[1].gunModel.SetActive(false);
         }
         if (Input.GetKey("2"))
         {
             activegun = 1;
             currentGun = gunType[1];
+            currentGun.gunModel.SetActive(true);
+            gunType[0].gunModel.SetActive(false);
         }
-        if (Input.GetKey("3"))
-        {
-            activegun = 2;
-            currentGun = gunType[2];
-        }
-
     }
 }
 

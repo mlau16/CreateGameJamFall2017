@@ -66,6 +66,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1276752831180154
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4436280901739920}
+  - component: {fileID: 33534939279753370}
+  - component: {fileID: 23083464632348684}
+  m_Layer: 0
+  m_Name: Shotgun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1529914664698056
 GameObject:
   m_ObjectHideFlags: 1
@@ -171,9 +188,23 @@ Transform:
   m_Children:
   - {fileID: 4943079155722326}
   - {fileID: 4881615880129346}
+  - {fileID: 4436280901739920}
   m_Father: {fileID: 4755833095925380}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4436280901739920
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276752831180154}
+  m_LocalRotation: {x: 0.3860622, y: 0.39051008, z: 0.5924154, w: -0.5894929}
+  m_LocalPosition: {x: 0.39985728, y: 0.16516626, z: 0.3889677}
+  m_LocalScale: {x: 26.172829, y: 26.172834, z: 26.172834}
+  m_Children: []
+  m_Father: {fileID: 4299011479867200}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -66.614006, y: -0.43100002, z: 270}
 --- !u!4 &4755833095925380
 Transform:
   m_ObjectHideFlags: 1
@@ -263,6 +294,40 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!23 &23083464632348684
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276752831180154}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: d6311eb896a99244bb47f3a1a7577fc3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23363831120927278
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -372,6 +437,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1024079293812876}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &33534939279753370
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276752831180154}
+  m_Mesh: {fileID: 4300000, guid: fa8f4670e7f70594abcf44f77d2ca007, type: 3}
 --- !u!33 &33883715691675758
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -448,30 +520,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunType:
+  - name: AR
+    shootingRate: 0.1
+    gunModel: {fileID: 1586439942476374}
+    bulletOrigin: {fileID: 4943079155722326}
+    bulletPrefab: {fileID: 114571033575634836, guid: 0c3d4940d9d97f54f9889f1e5357488f,
+      type: 2}
+    bulletVel: 70
+    damage: 1
   - name: Shotgun
-    shootingRate: 0.11
-    gunModel: {fileID: 0}
+    shootingRate: 0.75
+    gunModel: {fileID: 1276752831180154}
     bulletOrigin: {fileID: 4943079155722326}
     bulletPrefab: {fileID: 114571033575634836, guid: 0c3d4940d9d97f54f9889f1e5357488f,
       type: 2}
     bulletVel: 50
-    damage: 5
-  - name: asd
-    shootingRate: 0.06
-    gunModel: {fileID: 0}
-    bulletOrigin: {fileID: 4943079155722326}
-    bulletPrefab: {fileID: 114571033575634836, guid: 0c3d4940d9d97f54f9889f1e5357488f,
-      type: 2}
-    bulletVel: 50
-    damage: 0.48
-  - name: asd
-    shootingRate: 0.33
-    gunModel: {fileID: 0}
-    bulletOrigin: {fileID: 4943079155722326}
-    bulletPrefab: {fileID: 114571033575634836, guid: 0c3d4940d9d97f54f9889f1e5357488f,
-      type: 2}
-    bulletVel: 50
-    damage: 0.22
+    damage: 2
   currentGun:
     name: 
     shootingRate: 0
