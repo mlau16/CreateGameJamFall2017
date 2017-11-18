@@ -26,6 +26,7 @@ public class Ragdoll : MonoBehaviour, IGiveForce
     void IGiveForce.TakeForce(Ray bullet,RaycastHit hit)
     {
         print("Box is shot");
+        bullet.direction.Set(bullet.direction.x, Random.Range(1000, 50000), bullet.direction.z); 
        rb.AddForceAtPosition(bullet.direction * 1002, hit.point, ForceMode.Impulse);
         
     }

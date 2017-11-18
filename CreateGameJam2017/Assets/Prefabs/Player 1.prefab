@@ -576,7 +576,7 @@ MonoBehaviour:
     minCamRot: 0
     maxCamRot: 0
     jumpVel: 16.71
-    distToGrounded: 1.01
+    distToGrounded: 2.17
     ground:
       serializedVersion: 2
       m_Bits: 4294967295
