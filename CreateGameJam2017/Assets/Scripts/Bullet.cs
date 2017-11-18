@@ -40,7 +40,6 @@ public class Bullet : MonoBehaviour {
     private void OnHitObject(RaycastHit hit)
     {
         print(hit.collider.gameObject.name);
-        //to do
         IDamageable damageableObject = hit.collider.GetComponent<IDamageable>();
         if (damageableObject != null)
         {

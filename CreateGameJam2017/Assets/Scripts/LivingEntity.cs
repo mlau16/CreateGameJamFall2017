@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Extends damage interface
+[System.Serializable]
 public class LivingEntity : MonoBehaviour, IDamageable
 {
     public float startingHealth;
-    protected float health;
+    public float health;
     protected bool dead;
 
     protected virtual void Start()

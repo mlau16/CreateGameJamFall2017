@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 195821281171850644}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 2
+  health: 0
 --- !u!136 &136954081711946668
 CapsuleCollider:
   m_ObjectHideFlags: 1

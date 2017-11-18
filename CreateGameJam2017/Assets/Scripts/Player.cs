@@ -12,6 +12,8 @@ public class Player : LivingEntity
     Transform tm;
     Vector3 input = new Vector3();
     float movespeed;
+    public CollisionDetectionMode collisionDetectionMode = CollisionDetectionMode.Continuous;
+    bool damageable = true;
 
 
     // Use this for initialization
@@ -20,10 +22,27 @@ public class Player : LivingEntity
         base.Start();
         rb = GetComponent<Rigidbody>();
         tm = GetComponent<Transform>();
+        
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void OnCollisionStay(Collision col)
+    {
+        if (col.gameObject.tag == "enemy" && damageable == true)
+        {
+            health = health - 1;
+            print("Health: " + health);
+        }
+    }
+
+    IEnumerator decreaseHealth()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(5);
+        print(Time.time);
+    }
+
+    // Update is called once per frame
+    void Update () {
         //x,y,z
 
         movespeed = Time.deltaTime * 1000;
